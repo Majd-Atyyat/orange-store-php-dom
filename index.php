@@ -28,7 +28,7 @@ $phones = [
     [ 
      'name' => 'ITEL A48',
      'img_url' =>'https://eshop.orange.jo/app-images/thumbs/0001495_apple-iphone-12-pro_220.jpeg',
-    'rate' => '0',
+    'rate' => '2',
     'brand' => 'iTel',
     'price' => 'JOD 66.00'
     ],
@@ -62,6 +62,8 @@ $phones = [
     <!-- Copyright © 2014 Monotype Imaging Inc. All rights reserved -->
 <link href="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/css/orange-helvetica.min.css" rel="stylesheet" integrity="sha384-ARRzqgHDBP0PQzxQoJtvyNn7Q8QQYr0XT+RXUFEPkQqkTB6gi43ZiL035dKWdkZe" crossorigin="anonymous">
 <link href="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/css/boosted.min.css" rel="stylesheet" integrity="sha384-Di/KMIVcO9Z2MJO3EsrZebWTNrgJTrzEDwAplhM5XnCFQ1aDhRNWrp6CWvVcn00c" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
+<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
@@ -103,5 +105,53 @@ $phones = [
   </div>
 </nav>
 <script src="https://cdn.jsdelivr.net/npm/boosted@5.1.3/dist/js/boosted.bundle.min.js" integrity="sha384-5thbp4uNEqKgkl5m+rMBhqR+ZCs+3iAaLIghPWAgOv0VKvzGlYKR408MMbmCjmZF" crossorigin="anonymous"></script>
+<div class="container">
+<div class="row row-cols-1  row-cols-md-3 g-4 ">
+<?php
+for($i=0;$i<count($phones);$i++){
+echo ('<div class="col">
+  <div class="card">
+<img style="height:200px;width:150px;margin:auto;" src="'.($phones[$i]['img_url']).'" class="card-img-top" alt="...">
+<div class="card-body">
+<p class="card-text">'.($phones[$i]['brand']).'</p>
+  <h5 class="card-title">'.($phones[$i]['name']).'</h5>');
+  ?>
+
+<p>
+<?php
+for($j=0;$j<5;$j++){
+  if ($j < $phones[$i]['rate']){
+    echo '<i class="bi bi-star-fill"></i>';
+  }
+else{
+  echo '<i class="bi bi-star"></i>';
+}
+}
+?>
+</p>
+  
+  <div class="rate">
+</div>
+  <hr>
+  <div>
+  <p class="card-price">
+    <?php
+     echo $phones[$i]['price'];
+    ?>
+    </p>
+</div>
+  <div class="row"  >
+  <div class="col-9"><a href="#" class="btn btn-primary">Buy now</a></div>
+  <button class="col-2" class="btn"><i class="bi bi-cart-dash-fill"></i></button>
+  </div>
+</div>
+</div>
+</div>
+<?php
+}
+?>
+
+</div>
+</div>
 </body>
 </html>
